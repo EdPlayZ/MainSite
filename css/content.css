@@ -1,0 +1,39 @@
+/* Defining variables and standard code */
+:root {
+    --cyan: #0B6C5B;
+    --white: #ffffff;
+    --orange: #F58A00;
+    --black: #000000;
+}
+
+/* Content styling */
+.PrimaryContainer {
+    display: flex;
+    width: auto;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 10px auto auto auto;
+}
+.YT {
+    border-style: solid;
+    border-color: var(--white);
+    width: 560px;
+    height: fit-content;
+    margin: 10px auto auto auto;
+}
+.YT p {
+    padding: 0px;
+    margin: 0px;
+}
+.YT iframe {
+    margin: auto;
+    padding: auto;
+    width: 560px;
+    height: 315px;
+    display: block;
+    align-self: center;
+}
+
+/* Example Comment */
+/* Margin |top|right|bottom|left| */

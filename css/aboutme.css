@@ -1,0 +1,18 @@
+/* Defining variables and standard code */
+:root {
+    --cyan: #0B6C5B;
+    --white: #ffffff;
+    --orange: #F58A00;
+    --black: #000000;
+}
+
+/* Formatting for images below this line */
+.me img {
+    margin: 5px auto auto auto;
+    padding: auto auto auto auto;
+    display: block;
+}
+/* Beyond this line we begin the formatting for classes */
+
+/* Example Comment */
+/* Margin |top|right|bottom|left| */

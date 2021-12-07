@@ -1,0 +1,91 @@
+/* Defining variables and standard code */
+:root {
+    --cyan: #0B6C5B;
+    --white: #ffffff;
+    --orange: #F58A00;
+    --black: #000000;
+    --fancyred: #D13A6F;
+    --fancygreen: #39D252;
+}
+
+
+/* Index styling */
+
+body {
+    background-image: url("../files/why.jpg");
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+/* defining the grid */
+
+.grid-container {
+    display: grid;
+    width: 1090px;
+    justify-content: space-evenly;
+    margin: 10px auto auto auto;
+    grid-gap: 10px;
+    background-color: var(--black);
+}
+
+/* defining top of page */
+
+.HeadLogo {
+    width: auto;
+    height: 25px;
+    margin: auto 2px -2px 2px;
+    background-color: var(--black);
+}
+
+/* start of grid boxes */
+
+.grid-box {
+    height: 18.75rem;
+    width: 18.75rem;
+    padding: auto auto auto auto;
+    margin: auto auto auto auto;
+    border: solid var(--white);
+    text-align: center;
+}
+.grid-box img {
+    width: 100%;
+}
+#grid-1 {
+    grid-row: 1;
+    grid-column: 1;
+}
+#grid-2 {
+    grid-row: 1;
+    grid-column: 2;
+}
+#grid-3 {
+    grid-row: 1;
+    grid-column: 3;
+}
+#grid-4 {
+    grid-row: 2;
+    grid-column: 1;
+}
+#grid-5 {
+    grid-row: 2;
+    grid-column: 2;
+}
+#grid-6 {
+    grid-row: 2;
+    grid-column: 3;
+}
+/* misc */
+input {
+    margin: 10px auto auto auto;
+}
+.false {
+    color: var(--fancyred);
+}
+.true {
+    color: var(--fancygreen);
+}
+h1 {
+    font-size: 28rem;
+}
+/* Example Comment */
+/* Margin |top|right|bottom|left| */

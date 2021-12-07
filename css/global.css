@@ -1,0 +1,143 @@
+/* Defining variables */
+:root {
+    --cyan: #0B6C5B;
+    --white: #ffffff;
+    --orange: #F58A00;
+    --black: #000000;
+    --fancyred: #D13A6F;
+}
+
+/* Code for backgrounds and such */
+html, body {
+    margin: 0rem;
+    padding: 0rem;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: var(--black);
+}
+.PageContent {
+    height: 100%;
+    margin: 2.5rem auto auto auto;
+    background-color: var(--black);
+    width: 75rem;
+}
+/* Code for Menu related stuff */
+.MenuBar {
+    position: fixed;
+    margin: 0rem;
+    padding: 0rem;
+    height: 2.5rem;
+    width: 100%;
+    background: var(--fancyred);
+    display: inline-flex;
+    flex-direction: row;
+}
+.MenuBar a {
+    margin: auto 0.05rem auto 0.05rem;
+    padding: 0.30rem 0rem;
+    height: 1.9rem;
+    width: 8.5rem;
+    text-align: center;
+}
+.MenuBar span {
+    text-align: center;
+    overflow: hidden;
+}
+.MenuBar img {
+    margin: -0.3rem 0.5rem auto 0.5rem;
+    max-height: 3rem;
+    max-width: 3rem;
+}
+a {
+    color: var(--white);
+    font-family: Arial, "Times New Roman";
+    font-size: 1.5rem;
+    text-decoration: none;
+    height: 1.5rem;
+    margin: auto;
+}
+.white-hover:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+.External, .Internal {
+    padding: auto auto auto auto;
+    margin: auto auto auto auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.External {
+    height: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    float: center;
+    text-align: center;
+    flex-grow: 1;
+}
+.External img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: auto 0.05rem auto 0.05rem;
+    vertical-align: text-bottom;
+}
+.Internal {
+    width: 50%;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+}
+/* other */
+.top-of-page {
+    text-align: center;
+    border: solid var(--white);
+    width: 1000px;
+    margin: 5px auto auto auto;
+    background-color: var(--black);
+}
+.top-of-page-cont {
+    text-align: center;
+    border: solid var(--white);
+    margin: 5px auto auto auto;
+}
+/* Code for headers and paragraphs */
+h1 {
+    font-family: Arial, "Times New Roman";
+    font-size: 2rem;
+    color: var(--orange);
+    margin: 0.75rem;
+}
+p {
+    font-family: Arial, "Times New Roman";
+    font-size: 1.5rem;
+    color: var(--white);
+}
+label {
+    font-family: Arial, "Times New Roman";
+    font-size: 1.5rem;
+    color: var(--white);
+}
+span {
+    text-align: center;
+    vertical-align: middle;
+}
+.Socials {
+    margin: 0.65rem auto auto auto;
+    width: 90%;
+    height: 7.5rem;
+    border: solid var(--white);
+}
+.Socials p {
+    margin: auto auto auto auto;
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+    padding: 0rem;
+    height: 0rem;
+}
+/* Example Comment */
+/* Margin |top|right|bottom|left| */

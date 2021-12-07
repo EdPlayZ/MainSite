@@ -1,0 +1,58 @@
+:root {
+    --cyan: #0B6C5B;
+    --white: #ffffff;
+    --orange: #F58A00;
+    --black: #000000;
+    --fancyred: #D13A6F;
+}
+.PageContent h1 {
+    margin: 0.5rem auto auto auto;
+    align-self: center;
+    font-size: 3rem;
+    display: block;
+    text-align: center;
+}
+.register {
+    text-decoration: underline;
+}
+input {
+    margin: 0.5rem auto auto auto;
+    align-self: center;
+    display: block;
+    text-align: center;
+    color: var(--white);
+    border: solid var(--white);
+    border-radius: 1rem;
+    background-color: var(--black);
+    width: 30%;
+    font-size: 1.5rem;
+    opacity:1;
+    transition: 0.3s;
+}
+input:focus {
+    border: solid var(--fancyred);
+    color: var(--fancyred);
+    outline: none;
+    transition: 0.3s;
+}
+label {
+    margin: 0.5rem auto auto auto;
+    align-self: center;
+    display: block;
+    text-align: center;
+}
+input.submit {
+    cursor: pointer;
+}
+input.submit:hover {
+    cursor: pointer;
+    transition: 0.3s;
+    color: var(--fancyred);
+    border: solid var(--fancyred);
+}
+.PageContent p {
+    margin: 0.5rem auto auto auto;
+    align-self: center;
+    display: block;
+    text-align: center;
+}

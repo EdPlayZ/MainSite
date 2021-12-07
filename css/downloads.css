@@ -1,0 +1,36 @@
+:root {
+    --cyan: #0B6C5B;
+    --white: #ffffff;
+    --orange: #F58A00;
+    --black: #000000;
+}
+body {
+    height: 100%;
+    overflow: auto;
+    background-color: var(--black);
+}
+.PageContent {
+    height: 99%;
+    margin: 2.5rem auto auto auto;
+    background-color: var(--black);
+    width: 75rem;
+}
+.dbutton {
+    margin: auto auto auto auto;
+    padding: auto auto auto auto;
+    color: var(--white);
+    background-color: var(--cyan);
+    height: 2rem;
+    border-color: var(--white);
+    border-radius: 0.5rem;
+    width: 6rem;
+}
+.dbutton:hover {
+    color: var(--black);
+    cursor: pointer;
+}
+a:hover {
+    background-color: var(--black);
+}
+/* Example Comment */
+/* Margin |top|right|bottom|left| */

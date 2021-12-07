@@ -1,0 +1,89 @@
+:root {
+    --cyan: #0B6C5B;
+    --white: #ffffff;
+    --orange: #F58A00;
+    --black: #000000;
+    --fancyred: #D13A6F;
+}
+
+.searchbar {
+    margin: auto auto auto auto;
+    align-self: center;
+    display: block;
+    text-align: center;
+    color: var(--white);
+    border: solid var(--white);
+    border-radius: 1rem;
+    background-color: var(--black);
+    width: 50%;
+    font-size: 2.5rem;
+}
+::-webkit-input-placeholder {
+    color: var(--white);
+    opacity: 0.7;
+}
+
+table {
+    margin: auto;
+    width: 1300px;
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 5px;
+}
+tr {
+    font-family: Arial, "Times New Roman";
+    font-size: 24px;
+    color: white;
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 5px;
+}
+th {
+    font-family: Arial, "Times New Roman";
+    font-size: 24px;
+    color: #D97C11;
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 5px;
+}
+td {
+    font-family: Arial, "Times New Roman";
+    font-size: 24px;
+    color: white;
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+.MC-UUID {
+    display: none;
+}
+.button-container {
+    display: flex;
+    width: 100%;
+}
+button {
+    margin: 0.5rem auto auto auto;
+    padding: 0.15rem 0.5rem 0.15rem 0.5rem;
+    align-self: center;
+    display: block;
+    text-align: center;
+    color: var(--white);
+    border: solid var(--white);
+    border-radius: 1rem;
+    background-color: var(--black);
+    width: fit-content;
+    font-size: 1.5rem;
+    opacity:1;
+    transition: 0.3s;
+    cursor: pointer;
+}
+button:hover {
+    cursor: pointer;
+    transition: 0.3s;
+    color: var(--fancyred);
+    border: solid var(--fancyred);
+}
+
+/* Example Comment */
+/* Margin |top|right|bottom|left| */
