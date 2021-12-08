@@ -59,7 +59,8 @@ input.submit:hover {
 .failedlogin {
     margin: 2rem auto auto auto;
     color: var(--fancyred);
-    width: 20%;
+    padding: 0.15rem 0.5rem 0.15rem 0.5rem;
+    width: fit-content;
     border: solid var(--fancyred);
     border-radius: 2rem;
     background-color: rgba(230, 25, 150, 0.07);
