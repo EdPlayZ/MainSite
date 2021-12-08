@@ -28,14 +28,13 @@ if (isset($_SESSION['username']))
                 <label for="password">Password:</label>
                 <input type="password" name="password" placeholder="Password">
 
+                <input class="submit" type="submit" value="Logg inn" name="submit" />
                 <?php
-                if ($login == 'failed') {
-                    echo '<p class="failedlogin">Login Invalid</p>';
+                if ($logincheck == 'failed') {
+                    echo '<p class="failedlogin">Login Invalid, check your credentials. If youve forgotten your password, please contact system administrator</p>';
                     unset($_SESSION['login']);
                 }
                 ?>
-
-                <input class="submit" type="submit" value="Logg inn" name="submit" />
                 <p>Or click <a class="register" href="registration.php">here</a> to register a new user </p>
             </div>
         </form>    
@@ -74,13 +73,12 @@ if (isset($_SESSION['username']))
             //A check that verifies the credentials given
             if($result->num_rows > 0){
                 //Execute this code if credentials are valid
+                session_destroy();
                 session_start();
                 $_SESSION['username'] = $username;
-
                 header('location: userpage');
             }else{
                 //Execute this code if credentials are invalid
-                //Ugyldig login
                 session_start();
                 $_SESSION['login'] = 'failed';
                 header('location: login');
