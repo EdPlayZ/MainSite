@@ -1,6 +1,7 @@
 <?php
 session_start();
 $username = $_SESSION['username'];
+$logincheck = $_SESSION['login'];
 $activepage = "Login";
 $activeurl = 'login';
 include '.env.php';
@@ -26,6 +27,13 @@ if (isset($_SESSION['username']))
                 <input type="text" name="username" placeholder="Username"/>
                 <label for="password">Password:</label>
                 <input type="password" name="password" placeholder="Password">
+
+                <?php
+                if ($login == 'failed') {
+                    echo '<p class="failedlogin">Login Invalid</p>';
+                    unset($_SESSION['login']);
+                }
+                ?>
 
                 <input class="submit" type="submit" value="Logg inn" name="submit" />
                 <p>Or click <a class="register" href="registration.php">here</a> to register a new user </p>
@@ -72,7 +80,10 @@ if (isset($_SESSION['username']))
                 header('location: userpage');
             }else{
                 //Execute this code if credentials are invalid
-                echo 'Invalid Login';
+                //Ugyldig login
+                session_start();
+                $_SESSION['login'] = 'failed';
+                header('location: login');
             }
         }
     ?>
