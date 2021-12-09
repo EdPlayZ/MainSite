@@ -1,11 +1,12 @@
 <?php
 session_start();
 $username = $_SESSION['username'];
-$registrationcheck = $_SESSION['registration'];
+$errorcode = $_SESSION['errorcode'];
 $activepage = "Register New User";
 $activeurl = 'registration';
 include '.env.php';
 include 'header.php';
+include 'errocodes.php';
 ?>
 
 <html>
@@ -28,9 +29,13 @@ include 'header.php';
                 <input class="submit" type="submit" value="Register" name="submit" />
                 
                 <?php
-                if ($registrationcheck == 'failed') {
-                    echo '<p class="failedlogin">Login Invalid</p>';
-                    unset($_SESSION['registration']);
+                switch ($errorcode) {
+                    case 2:
+                        echo "<p class='failedlogin'>$error_2</p>";
+                        unset($_SESSION['errorcode']);
+                    case 3:
+                        echo "<p class='failedlogin'>$error_3</p>";
+                        unset($_SESSION['errorcode']);
                 }
                 ?>
             </form>
@@ -52,27 +57,42 @@ include 'header.php';
             $sha256=hash('SHA256' , $password.$salt);
 
             $query = "INSERT into Logins values ('$username', '$sha256', '$salt')";
+            $usrquery = "SELECT `Username` from `Logins`";
             //Utføre spørringen
+            
+            
+            $usrnamecheck = mysqli_query($dbc, $usrquery)
+            or die('Error querying database.');
+            
             if($invitekey == 'secret'){
-                $result = mysqli_query($dbc, $query)
-                or die('Error querying database.');
+                if($usrnamecheck->num_rows > 0){echo"$username already exists, please try a different username";}   
+                else{
+                    $result = mysqli_query($dbc, $query)
+                    or die('Error querying database.');
+                }
             }
             //Koble fra databasen
             mysqli_close($dbc);
 
 
             //Sjekke om spørringen gir resultater
-
-            if($result){
-                //Gyldig login
-                session_destroy();
+            if($usrnamecheck->num_rows > 0){
                 session_start();
-                header('location: login');
-            }else{
-                //Ugyldig login
-                session_start();
-                $_SESSION['registration'] = 'failed';
-                header('location: registration');
+                $_SESSION['errorcode'] = '3';
+                echo"$username already exists, please try a different username";
+            }   
+            else{
+                if($result){
+                    //Gyldig login
+                    session_destroy();
+                    session_start();
+                    header('location: login');
+                }else{
+                    //Ugyldig login
+                    session_start();
+                    $_SESSION['errorcode'] = '3';
+                    header('location: registration');
+                }
             }
         }
     ?>
