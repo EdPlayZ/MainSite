@@ -24,21 +24,21 @@ if (!isset($_SESSION['username']))
     <body>
         <div class="PageContent">
             <!-- Top PageContent -->
-            <input class="searchbar" type="text" placeholder="Search Here">
+            <input class="searchbar" type="text" placeholder="Search Here" data-table="mc-table">
             <div class=button-container>
-                <button onclick="showUUID()">MC-UUID</button>                
+                <button class="MC-UUID-Button">MC-UUID</button>                
                 <button>D</button>
             </div>
             <?php
 
-            echo '<table class="MC-UUID">';
+            echo '<div class="MC-UUID"><table class="mc-table">';
             echo"<tr><th>Name</th><th>UUID</th></tr>";
             while ($content = $query->fetch_assoc()) {
                 $name = $content['Name'];
                 $uuid = $content['UUID'];
-                echo "<tr><th>$name</th><td>$uuid</td></tr>";
+                echo "<tr class=\"wrapper\"><th class=\"user\">$name</th><td class=\"uuid\">$uuid</td></tr>";
             }
-            echo '</table>';
+            echo '</table></div>';
             ?>
             <!-- Bottom PageContent -->
         </div>

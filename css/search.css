@@ -56,7 +56,12 @@ td {
 }
 
 .MC-UUID {
-    display: none;
+    width: 100%;
+    margin: 1rem auto auto auto;
+    display: inherit;
+}
+.MC-UUID table {
+    width: inherit;
 }
 .button-container {
     display: flex;
