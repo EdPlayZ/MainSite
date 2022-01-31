@@ -7,7 +7,7 @@
             "scpsl@7777": true
         },
         {
-            "jre8@paxelmonreborn-0.1.0": true
+            "jre8@paxelmonreborn-0.1.0": false
         }
     ]
 }
