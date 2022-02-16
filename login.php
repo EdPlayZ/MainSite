@@ -55,19 +55,19 @@ if (isset($_SESSION['username']))
             $dbc = mysqli_connect('localhost', "$dbuser", "$dbpwd", "$dbname")
               or die('Error connecting to MySQL server.');
             
+
+
+
+            //Getting the salt, input sanitazion not needed due to there not being any user input.
             $Salt = mysqli_query($dbc, "SELECT `Salt` from `Logins` where `Username`='$username'");
-
-
-
             $row = $Salt->fetch_assoc();
             $salt = $row['Salt'];           
             $hashedpass=hash('sha256', $password.$salt);
 
+            //PHP code to input the variables as strings instead of treating them as code, hopefully preventing any sql injection attacks.
             $stmt = $dbc->prepare("SELECT `Username`, `Password` from `Logins` where `Username` = ? and `Password`= ?");
             $stmt->bind_param('si',$username,$hashedpass);
             $stmt->execute();
-
-            #$query = "SELECT `Username`, `Password` from `Logins` where `Username`='$username' and `Password`='$hashedpass'";
             
             //Query the database
             $result = $stmt->get_result();
@@ -75,7 +75,7 @@ if (isset($_SESSION['username']))
             
             //Close the connection
             mysqli_close($dbc);
-            
+
             //A check that verifies the credentials given
             if($result->num_rows > 0){
                 //Execute this code if credentials are valid
