@@ -49,37 +49,43 @@ include 'errorcodes.php';
         </div>
     </body>
     <?php
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
         if(isset($_POST['submit'])){
-            //Gjøre om POST-data til variabler
+            //Converting the POST data into variables
             $username = $_POST['username'];
             $password = $_POST['password'];
             $invitekey = $_POST['invitekey'];
-            //Koble til databasen
+
+            //Creating the connection to the database
             $dbc = mysqli_connect('localhost', "$dbuser", "$dbpwd", "$dbname")
               or die('Error connecting to MySQL server.');
             
-            //Gjøre klar SQL-strengen
+            //defining some variables
             $salt=md5(rand());
             $sha256=hash('SHA256' , $password.$salt);
             $usertype="Standard";
 
-            $query = "INSERT into Logins values ('$usertype','$username'', '$sha256'', '$salt')";
-            $usrquery = "SELECT `Username` from `Logins` where `Username`='$username'";
-            //Utføre spørringen
-            
-            
-            $usrnamecheck = mysqli_query($dbc, $usrquery)
-            or die('Error querying database.');
+            $usrquery = $dbc->prepare("SELECT `Username` from `Logins` where `Username`= ?");
+            $usrquery->bind_param("s",$username);
+            $usrquery->execute();
+            $result = $usrquery->get_result();
+
             
             if($invitekey == 'secret'){
-                if($usrnamecheck->num_rows > 0){
+                if($result->num_rows > 0){
                     session_start();
                     $_SESSION['errorcode'] = '2';
                     header('location: registration');
                 }   
                 else{
-                    $result = mysqli_query($dbc, $query)
-                    or die('Error querying database.');
+                    $insertquery = $dbc->prepare("INSERT into Logins values ('$usertype', ? , '$sha256', '$salt')");
+                    $insertquery->bind_param("s",$username);
+                    $insertquery->execute();
+                    session_start();
+                    $_SESSION['username'] = $username;
+                    header('location: userpage');
                 }
             }
             else{
@@ -93,12 +99,7 @@ include 'errorcodes.php';
 
             //Checking if Username is already taken
 
-                if($result){
-                    //Login is valid
-                    session_destroy();
-                    session_start();
-                    header('location: login');
-                }
+
             }
     ?>
 </html>

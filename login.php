@@ -45,10 +45,6 @@ if (isset($_SESSION['username']))
 
 <!-- Example Comment -->
     <?php
-        ini_set('display_errors', 1);
-        ini_set('display_startup_errors', 1);
-        error_reporting(E_ALL);
-
         if(isset($_POST['submit'])){
             //Taking the POST method and defining Variables with it
             $username = $_POST['username'];
