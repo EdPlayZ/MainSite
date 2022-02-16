@@ -63,7 +63,7 @@ include 'errorcodes.php';
             $sha256=hash('SHA256' , $password.$salt);
             $usertype="Standard";
 
-            $query = "INSERT into Logins values ('$usertype','$username', '$sha256', '$salt')";
+            $query = "INSERT into Logins values ('$usertype','$username'', '$sha256'', '$salt')";
             $usrquery = "SELECT `Username` from `Logins` where `Username`='$username'";
             //Utføre spørringen
             

@@ -57,19 +57,25 @@ if (isset($_SESSION['username']))
             
             $Salt = mysqli_query($dbc, "SELECT `Salt` from `Logins` where `Username`='$username'");
 
+
+
             $row = $Salt->fetch_assoc();
             $salt = $row['Salt'];           
             $hashedpass=hash('sha256', $password.$salt);
 
-            $query = "SELECT `Username`, `Password` from `Logins` where `Username`='$username' and `Password`='$hashedpass'";
+            $stmt = $dbc->prepare("SELECT `Username`, `Password` from `Logins` where `Username` = ? and `Password`= ?");
+            $stmt->bind_param('si',$username,$hashedpass);
+            $stmt->execute();
+
+            #$query = "SELECT `Username`, `Password` from `Logins` where `Username`='$username' and `Password`='$hashedpass'";
             
             //Query the database
-            $result = mysqli_query($dbc, $query)
-              or die('Error querying database.');
+            $result = $stmt->get_result();
+            
             
             //Close the connection
             mysqli_close($dbc);
-
+            
             //A check that verifies the credentials given
             if($result->num_rows > 0){
                 //Execute this code if credentials are valid
