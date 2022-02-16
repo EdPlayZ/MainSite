@@ -73,7 +73,7 @@ include 'errorcodes.php';
             $result = $usrquery->get_result();
 
             
-            if($invitekey == 'secret'){
+            if($invitekey == $secretkey){
                 if($result->num_rows > 0){
                     session_start();
                     $_SESSION['errorcode'] = '2';

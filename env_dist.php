@@ -4,5 +4,6 @@ change filename to .env.php
 $dbpwd = "yourpasswordhere";
 $dbuser = "yourdbuser";
 $dbname = "yourdbname";
+$secretkey = "yousecretkeyhere";
 
 ?>
