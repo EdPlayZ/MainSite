@@ -45,6 +45,10 @@ if (isset($_SESSION['username']))
 
 <!-- Example Comment -->
     <?php
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
+
         if(isset($_POST['submit'])){
             //Taking the POST method and defining Variables with it
             $username = $_POST['username'];
@@ -54,13 +58,13 @@ if (isset($_SESSION['username']))
             //Connect to the database
             $dbc = mysqli_connect('localhost', "$dbuser", "$dbpwd", "$dbname")
               or die('Error connecting to MySQL server.');
-            
 
-
-
-            //Getting the salt, input sanitazion not needed due to there not being any user input.
-            $Salt = mysqli_query($dbc, "SELECT `Salt` from `Logins` where `Username`='$username'");
-            $row = $Salt->fetch_assoc();
+            //Getting the salt, input sanitaztion added 4 lines dear god please help
+            $saltquery = $dbc->prepare("SELECT `Salt` from `Logins` where `Username` = ?");
+            $saltquery->bind_param("s",$username);
+            $saltquery->execute();
+            $saltresult = $saltquery->get_result();
+            $row = $saltresult->fetch_assoc();
             $salt = $row['Salt'];           
             $hashedpass=hash('sha256', $password.$salt);
 
@@ -71,7 +75,6 @@ if (isset($_SESSION['username']))
             
             //Query the database
             $result = $stmt->get_result();
-            
             
             //Close the connection
             mysqli_close($dbc);
