@@ -2,25 +2,49 @@
 session_start();
 include '.env.php';
 $username = $_SESSION['username'];
+$usertype = $_SESSION['usertype'];
 $activepage = "Profile: $username";
 $activeurl = 'userpage';
 include 'header.php';
 if (!isset($_SESSION['username']))
     header('location: login')
 ?>
+<?php
+    $dbc = mysqli_connect('localhost', "$dbuser", "$dbpwd", "$dbname")
+    or die('Error connecting to MySQL server.');
+    $query = mysqli_query($dbc, "SELECT `Username` from `Logins` WHERE `Usertype`!='Administrator'");
 ?>
 
 <div class='PageContent'>
-    <h1>You are currently logged in as: <?php echo $username?></h1>
-    <p>Thank you for signing up to my website, I am currently hard at work expanding the featureset of being logged in. Currently I am working on a search funtion with some other databases</p>
-    <form method="post">
-        <input type="password" name="oldpassword">
-        <input type="password" name="newpassword">
-        <input type="submit" name="reset">
-    </form>
+    <div>
+        <h1>You are currently logged in as: <?php echo $username?></h1>
+        <p class="centered">Thank you for signing up to my website, I am currently hard at work expanding the featureset of being logged in. Currently I am working on a search funtion with some other databases</p>
+        <form method="post">
+            <p class="centered">Old Password:</p>
+            <input type="password" name="oldpassword">
+            <p class="centered">New Password:</p>
+            <input type="password" name="newpassword">
+            <input type="submit" name="reset">
+        </form>
+    </div>
+
+
+            <?php
+            if ($usertype=="Administrator"){
+                echo "<div> <select name=\"Users\" id=\"Users\">  <optgroup label=\"Valid Users\">";
+                while ($content = $query->fetch_assoc()) {
+                    $name = $content['Username'];
+                    echo "<option value=\"$name\">$name</option>";
+                }
+                echo "</optgroup></select></div>";
+            }
+            ?>
+
+    <div>
         <form method="post">
             <input class="submit" type="submit" value="Log Out" name="logout">
         </form>
+    </div>
 </div>
 
 <?php
@@ -29,8 +53,8 @@ if (!isset($_SESSION['username']))
         $oldpassword=$_POST['oldpassword'];
         $newpassword=$_POST['newpassword'];
 
-        $dbc = mysqli_connect('localhost', 'htaccess', 'ajOYkPysIpw8Kiz0', 'PrimaryDB')
-        or die('Error connecting to MySQL server.');
+        
+        
         $Salt = mysqli_query($dbc, "SELECT `Salt` from `Logins` where `Username`='$username'");
 
         $row = $Salt->fetch_assoc();

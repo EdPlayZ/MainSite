@@ -85,6 +85,7 @@ include 'errorcodes.php';
                     $insertquery->execute();
                     session_start();
                     $_SESSION['username'] = $username;
+                    $_SESSION['usertype'] = "Standard";
                     header('location: userpage');
                 }
             }

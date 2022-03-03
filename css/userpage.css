@@ -28,11 +28,16 @@ input {
     transition: 0.3s;
 }
 input.submit {
-    margin: 40rem auto auto auto;
+    margin: 35rem auto auto auto;
     cursor: pointer;
 }
 input.submit:hover {
     transition: 0.3s;
     color: var(--fancyred);
     border: solid var(--fancyred);
+}
+.centered {
+    text-align: center;
+    margin: 1rem auto auto auto;
+    justify-self: center;
 }

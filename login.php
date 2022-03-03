@@ -56,12 +56,13 @@ if (isset($_SESSION['username']))
               or die('Error connecting to MySQL server.');
 
             //Getting the salt, input sanitaztion added 4 lines dear god please help
-            $saltquery = $dbc->prepare("SELECT `Salt` from `Logins` where `Username` = ?");
+            $saltquery = $dbc->prepare("SELECT `Salt`, `Usertype` from `Logins` where `Username` = ?");
             $saltquery->bind_param("s",$username);
             $saltquery->execute();
             $saltresult = $saltquery->get_result();
             $row = $saltresult->fetch_assoc();
-            $salt = $row['Salt'];           
+            $salt = $row['Salt'];
+            $usertype = $row['Usertype'];           
             $hashedpass=hash('sha256', $password.$salt);
 
             //PHP code to input the variables as strings instead of treating them as code, hopefully preventing any sql injection attacks.
@@ -81,6 +82,7 @@ if (isset($_SESSION['username']))
                 session_destroy();
                 session_start();
                 $_SESSION['username'] = $username;
+                $_SESSION['usertype'] = $usertype;
                 header('location: userpage');
             }else{
                 //Execute this code if credentials are invalid
