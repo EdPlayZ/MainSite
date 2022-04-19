@@ -44,7 +44,7 @@ include_once 'header.php';
                 </div>
 
                 <div class="grid-box" id="grid-3">
-                    <img src="http://zyalp.com/files/background.jpg" alt="X">
+                    <img src="http://zyalp.com/files/Cynthia.png" alt="X">
                 </div>
 
                 <div class="grid-box" id="grid-4">
