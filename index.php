@@ -39,7 +39,7 @@ include_once 'header.php';
 
                 <div class="grid-box" id="grid-2">
                     <h1>What's New?</h1>
-                    <p>12/11/2021</p>
+                    <p>19/04/2022</p>
                     <p>It has been 12 years, but progress is finally going forward now that I am back in school. Please never let me do this shit again. Rewriting things is pain.</p>
                 </div>
 
