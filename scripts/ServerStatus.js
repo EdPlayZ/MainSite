@@ -15,7 +15,7 @@ var scp1 = document.querySelector("#scp1-zyalp-status");
 var logmc1 = document.querySelector("#mc1-zyalp-logging");
 var logscp1 = document.querySelector("#scp1-zyalp-logging");
 
-readTextFile("../main/files/test.json", function(text){
+readTextFile("../files/test.json", function(text){
     var data = JSON.parse(text);;
     checkStatus(data);
 })
