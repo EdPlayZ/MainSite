@@ -21,14 +21,22 @@
             <span>•</span>
             <a class="white-hover" href="http://www.zyalp.com/main/downloads">Downloads</a>
             <?php
-            
                 if (isset($_SESSION['username']))
                 echo '<span>•</span> <a class="white-hover" href="http://www.zyalp.com/main/search">Search</a>'
             ?>
             <img src="http://www.zyalp.com/cdn/69772537/52859417/logo.svg" alt="X">
 
         </div>
-        <a class="white-hover" href="http://www.zyalp.com/main/login">Login</a>
+        <?php
+        $username = $_SESSION['username'];
+        if ($username){
+            echo "<a class=\"white-hover\" href=\"http://www.zyalp.com/main/login\">$username</a>";
+        }
+        else {
+            echo "<a class=\"white-hover\" href=\"http://www.zyalp.com/main/login\">Login</a>";
+        }
+        ?>
+        
         <!-- Bottom Internal links -->
     </div>
     <!-- Bottom Menu -->
