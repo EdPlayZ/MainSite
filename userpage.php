@@ -67,12 +67,12 @@ if (!isset($_SESSION['username']))
                 }
                 mysqli_close($dbc);
                 if($result2){
-                    //Gyldig login
+                    //Valid Login
                     session_destroy();
                     session_start();
                     header('location: login');
                 }else{
-                    //Ugyldig login
+                    //Invalid Login
                     echo"failed";
                     header('location: index');
                 }
