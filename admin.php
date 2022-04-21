@@ -38,7 +38,7 @@ if ($usertype!="Administrator")
                     $selecteduser = $_POST['Users'];
 
                     $Deletequery = mysqli_query($dbc, "DELETE FROM `Logins` WHERE `Username` = '$selecteduser'");
-                    header('location: userpage');
+                    header('location: admin');
                 }
                 ?>
             </div>
