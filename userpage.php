@@ -30,13 +30,28 @@ if (!isset($_SESSION['username']))
 
 
             <?php
-            if ($usertype=="Administrator"){
-                echo "<div> <select name=\"Users\" id=\"Users\">  <optgroup label=\"Valid Users\">";
-                while ($content = $query->fetch_assoc()) {
-                    $name = $content['Username'];
-                    echo "<option value=\"$name\">$name</option>";
+                if ($usertype=="Administrator"){
+                   echo "<button><a href=\"http://zyalp.com/admin\">Admin panel</a></button>";
                 }
-                echo "</optgroup></select></div>";
+
+            ?>
+            
+            <form method="post">
+                <select name="Users" id="Users">
+                    <optgroup><?php while ($content = $query->fetch_assoc()) {
+                    $name = $content['Username'];
+                    $name = htmlspecialchars($name, ENT_QUOTES);
+                    echo "<option value=\"$name\">$name</option>";
+                } ?></optgroup>
+                </select>
+                <input type="submit" value="Delete" name="deleteuser">
+            </form>
+            <?php 
+            if(isset($_POST['deleteuser'])){
+                $selecteduser = $_POST['Users'];
+
+                $Deletequery = mysqli_query($dbc, "DELETE FROM `Logins` WHERE `Username` = '$selecteduser'");
+                header('location: userpage');
             }
             ?>
 

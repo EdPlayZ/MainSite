@@ -80,6 +80,7 @@ include 'errorcodes.php';
                     header('location: registration');
                 }   
                 else{
+                    $username = htmlspecialchars($username, ENT_QUOTES);
                     $insertquery = $dbc->prepare("INSERT into Logins values ('$usertype', ? , '$sha256', '$salt')");
                     $insertquery->bind_param("s",$username);
                     $insertquery->execute();

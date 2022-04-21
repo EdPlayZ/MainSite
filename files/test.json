@@ -4,7 +4,7 @@
             "jre8@enigmatica6-0.5.20": false
         },
         {
-            "scpsl@7777": true
+            "scpsl@7777": false
         },
         {
             "jre8@paxelmonreborn-0.1.0": false
