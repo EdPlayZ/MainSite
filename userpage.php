@@ -3,9 +3,11 @@ session_start();
 include '.env.php';
 $username = $_SESSION['username'];
 $usertype = $_SESSION['usertype'];
+$errorcode = $_SESSION['errorcode'];
 $activepage = "Profile: $username";
 $activeurl = 'userpage';
 include 'header.php';
+include 'errorcodes.php';
 if (!isset($_SESSION['username']))
     header('location: login')
 ?>
@@ -22,6 +24,18 @@ if (!isset($_SESSION['username']))
                     <p class="centered">New Password:</p>
                     <input type="password" name="newpassword">
                     <input type="submit" name="reset">
+                    <?php
+                echo$errorcode;
+                switch ($errorcode) {
+                    case 0:
+                        unset($_SESSION['errorcode']);
+                        break;
+                    case 5:
+                        echo "<p class=\"failedlogin\">$error_5</p>";
+                        unset($_SESSION['errorcode']);
+                        break;
+                }
+                ?>
                 </form>
             </div>
 
@@ -75,7 +89,8 @@ if (!isset($_SESSION['username']))
                 }else{
                     //Invalid Login
                     echo"failed";
-                    debug_to_console("Invalied Credentials");
+                    session_start();
+                    $_SESSION['errorcode'] = '5';
                 }
             }
 
