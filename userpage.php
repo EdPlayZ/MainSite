@@ -45,7 +45,8 @@ if (!isset($_SESSION['username']))
                 $oldpassword=$_POST['oldpassword'];
                 $newpassword=$_POST['newpassword'];
 
-                
+                $dbc = mysqli_connect('localhost', "$dbuser", "$dbpwd", "$dbname")
+                  or die('Error connecting to MySQL server.');
                 
                 $Salt = mysqli_query($dbc, "SELECT `Salt` from `Logins` where `Username`='$username'");
 
@@ -74,7 +75,7 @@ if (!isset($_SESSION['username']))
                 }else{
                     //Invalid Login
                     echo"failed";
-                    header('location: index');
+                    debug_to_console("Invalied Credentials");
                 }
             }
 
