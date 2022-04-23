@@ -11,7 +11,7 @@ include_once 'header.php';
     <head>
         <meta content="ZyalpNET Downloads "property="og:title" />
         <meta content="My downloads page" property="og:description" />
-        <meta content="http://www.zyalp.com/main/downloads.php" property="og:url" />
+        <meta content="http://zyalp.com/downloads.php" property="og:url" />
     </head>
     <body>
         <div class="PageContent">
@@ -21,7 +21,7 @@ include_once 'header.php';
             </div>
             <div>
                 <ul>
-                    <li><h1>Paxelmon Reborn-0.1.0</h1><a class="abutton" href="http://www.zyalp.com/cdn/71307080/74248600/Paxelmon_Reborn-0.1.0.zip"><button class="dbutton">Download</button></a></li>
+                    <li><h1>Paxelmon Reborn-0.1.0</h1><a class="abutton" href="http://zyalp.com/cdn/71307080/74248600/Paxelmon_Reborn-0.1.0.zip"><button class="dbutton">Download</button></a></li>
                 </ul>
             </div>
             <!-- Bottom PageContent -->
