@@ -1,0 +1,25 @@
+:root {
+    --cyan: #0B6C5B;
+    --white: #ffffff;
+    --orange: #F58A00;
+    --black: #000000;
+    --fancyred: #D13A6F;
+}
+.PageNav {
+    background-color: var(--white);
+    height: calc(100% - 2.5rem);
+    width: 1rem;
+    z-index: 1;
+    position: fixed;
+    transition: 0.2s;
+}
+.PageNav:hover {
+    width: 10rem;
+}
+.PageNav p {
+    color: var(--black);
+    font-size: 1rem;
+    margin: auto;
+    padding: auto;
+    text-align: center;
+}

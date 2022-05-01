@@ -11,7 +11,7 @@ include_once 'header.php';
     <head>
         <meta content="ZyalpNET About me" property="og:title" />
         <meta content="About the creator of ZyalpNET" property="og:description" />
-        <meta content="http://www.zyalp.com/main/<?php $activeurl?>" property="og:url" />
+        <meta content="http://zyalp.com/main/<?php $activeurl?>" property="og:url" />
     </head>
     <body>
         <div class="PageContent">
