@@ -7,7 +7,6 @@ include_once 'header.php';
 if (!isset($_SESSION['username']))
     header('location: login.php');
 ?>
-?>
 <html>
     <head>
         <meta content="ZyalpNET Toys" property="og:title" />
@@ -17,8 +16,8 @@ if (!isset($_SESSION['username']))
     <body>
         <div class="Page">
             <div class="PageNav">
-                <p>Warframe Selector</p>
-                <p>Other cool toy</p>
+                <button>Warframe Selector</button>
+                <button>Other cool toy</button>
             </div>
             <div class="PageContent">
                 <div class="WarframeSelector">
