@@ -21,9 +21,10 @@
             <span>•</span>
             <a class="white-hover" href="http://zyalp.com/downloads">Downloads</a>
             <?php
-                if (isset($_SESSION['username']))
-                echo '<span>•</span> <a class="white-hover" href="http://zyalp.com/search">Search</a>';
-                echo '<span>•</span> <a class="white-hover" href="http://zyalp.com/toys">Toys</a>';
+                if (isset($_SESSION['username'])){
+                    echo '<span>•</span> <a class="white-hover" href="http://zyalp.com/search">Search</a>';
+                    echo '<span>•</span> <a class="white-hover" href="http://zyalp.com/toys">Toys</a>';
+                }
             ?>
             <img src="http://zyalp.com/cdn/69772537/52859417/logo.svg" alt="X">
 

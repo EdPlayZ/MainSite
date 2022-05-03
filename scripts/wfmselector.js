@@ -3,6 +3,7 @@ const warframelist = ["Ash Prime", "Atlas Prime", "Banshee Prime", "Baruuk", "Ch
 var selectButton = document.querySelector(".wfmSelectButton")
 
 selectButton.addEventListener("click", warframeSelector)
+console.log("Array length: " + warframelist.length)
 
 function warframeSelector(){
     var target = document.querySelector(".selectedwarframe")

@@ -8,18 +8,24 @@
 .PageNav {
     background-color: var(--white);
     height: calc(100% - 2.5rem);
-    width: 1rem;
+    transform: translate(-9rem);
+    width: 10rem;
     z-index: 1;
     position: fixed;
     transition: 0.2s;
 }
 .PageNav:hover {
+    transition: 0.2s;
+    transform: translate(0rem);
     width: 10rem;
 }
 .PageNav button {
     color: var(--black);
     font-size: 1rem;
-    margin: auto;
+    display: block;
+    margin: 0.2rem auto auto auto;
+    align-self: center;
+    justify-self: center;
     padding: auto;
     text-align: center;
 }
@@ -49,3 +55,5 @@
     transition: 0.3s;
     cursor: pointer;
 }
+
+/* Margin |top|right|bottom|left| */
