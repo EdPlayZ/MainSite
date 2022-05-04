@@ -6,8 +6,11 @@ $activeurl = 'search';
 include '.env.php';
 include 'header.php';
 
-if (!isset($_SESSION['username']))
+if (!isset($_SESSION['username'])){
     header('location: login.php');
+    $_SESSION['return'] = "search";
+}
+    
     
     $dbc = mysqli_connect('localhost', "$dbuser", "$dbpwd", "$dbname")
     or die('Error connecting to MySQL server.');

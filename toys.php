@@ -4,8 +4,11 @@ $username = $_SESSION['username'];
 $activepage = "Main Page";
 $activeurl = 'toys';
 include_once 'header.php';
-if (!isset($_SESSION['username']))
+if (!isset($_SESSION['username'])){
     header('location: login.php');
+    $_SESSION['return'] = "toys";
+}
+
 ?>
 <html>
     <head>
@@ -16,19 +19,23 @@ if (!isset($_SESSION['username']))
     <body>
         <div class="Page">
             <div class="PageNav">
-                <button>Warframe Selector</button>
-                <button>Other cool toy</button>
+                <button id="wfmselector">Warframe Selector</button>
+                <button id="Other">Other cool toy</button>
             </div>
             <div class="PageContent">
                 <div class="WarframeSelector">
                     <button class="wfmSelectButton">Select Warframe</button>
                     <p class="selectedwarframe">Selected warframe:</p>
                 </div>
+                <div class="Other">
+                    <p>Hello :)</p>
+                </div>
             </div>
         </div>
 
     </body>
     <footer>
+        <script src="http://zyalp.com/scripts/toystoggle.js"></script>
         <script src="http://zyalp.com/scripts/wfmselector.js"></script>
     </footer>
 </html>

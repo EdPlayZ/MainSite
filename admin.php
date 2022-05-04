@@ -8,9 +8,10 @@ $activepage = "Profile: $username";
 $activeurl = 'admin';
 include 'header.php';
 
-if ($usertype!="Administrator")
-    header('location: userpage')
-
+if ($usertype!="Administrator"){
+    header('location: userpage');
+    $_SESSION['return'] = "admin";
+}
 ?>
 
 <?php

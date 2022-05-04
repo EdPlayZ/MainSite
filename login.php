@@ -79,11 +79,16 @@ if (isset($_SESSION['username']))
             //A check that verifies the credentials given
             if($result->num_rows > 0){
                 //Execute this code if credentials are valid
-                session_destroy();
                 session_start();
                 $_SESSION['username'] = $username;
                 $_SESSION['usertype'] = $usertype;
-                header('location: userpage');
+                $returnpage = $_SESSION['return'];
+                if (!isset($_SESSION['return'])){
+                    header('location: userpage');
+                }else{
+                    header("location: $returnpage");
+                }
+
             }else{
                 //Execute this code if credentials are invalid
                 session_start();
