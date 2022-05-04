@@ -5,7 +5,7 @@ $activepage = "Main Page";
 $activeurl = 'toys';
 include_once 'header.php';
 if (!isset($_SESSION['username'])){
-    header('location: login.php');
+    header('location: login');
     $_SESSION['return'] = "toys";
 }
 

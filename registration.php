@@ -87,7 +87,7 @@ include 'errorcodes.php';
                     session_start();
                     $_SESSION['username'] = $username;
                     $_SESSION['usertype'] = "Standard";
-                    header('location: userpage');
+                    header('location: login');
                 }
             }
             else{
