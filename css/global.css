@@ -30,15 +30,21 @@ html, body {
     height: 2.5rem;
     width: 100%;
     background: var(--fancyred);
-    display: inline-flex;
-    flex-direction: row;
+    display: flex;
+    justify-content: center;
 }
 .MenuBar a {
-    margin: auto 0.05rem auto 0.05rem;
+    margin: auto 0.5rem auto 0.5rem;
     padding: 0.30rem 0rem;
     height: 1.9rem;
+    text-align: center;
+}
+.MenuBar .login{
     width: 8.5rem;
     text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 .MenuBar span {
     text-align: center;
@@ -84,11 +90,12 @@ a {
     vertical-align: text-bottom;
 }
 .Internal {
-    width: 50%;
+    width: 100%;
     height: 2.5rem;
     display: flex;
     justify-content: center;
     text-align: left;
+    margin-left: auto;
 }
 /* other */
 .top-of-page {

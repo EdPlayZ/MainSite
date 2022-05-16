@@ -31,8 +31,8 @@ if (!isset($_SESSION['username'])){
                     <p>Hello :)</p>
                 </div>
             </div>
-        </div>
-
+        </div> 
+        
     </body>
     <footer>
         <script src="http://zyalp.com/scripts/toystoggle.js"></script>
