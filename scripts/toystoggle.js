@@ -16,3 +16,11 @@ function toggleVis(num){
         }
     }
 }
+window.addEventListener("load", function(){
+    console.log("Page Loaded: Set active toy to wfmselector")
+    for (let i = 0; i < array.length; i++){
+        if(i != 0){
+            array[i].style.display = "none"
+        }
+    }
+})
