@@ -20,7 +20,7 @@ include_once 'header.php';
                 <h1>About Me!</h1>
             </div>
             <div class="top-of-page-cont">
-                <p>An 18 year old furry IT student from Norway. Currently working on a mix of development and management.</p>
+                <p>An 19 year old furry IT student from Norway. Currently working on a mix of development and management.</p>
             </div>
             <div class="me">
                 <img src="./files/rastered.png" alt="X">
