@@ -45,7 +45,7 @@ include 'errorcodes.php';
                 }
                 ?>
             </form>
-            <p>Registering a user does not really do much right now, more features might come later<br>your password is stored as a SHA256 salted hash</p>
+            <p>Registering a user does not really do much right now, more features might come later.<br>See the <a href="http://zyalp.com/faq" style="text-decoration: underline;">FAQ</a> for information as to how your information is used</p>
         </div>
     </body>
     <?php

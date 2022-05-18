@@ -25,6 +25,8 @@ include_once 'header.php';
                 <p>To delete your account you currently have to reach out to me. You can contact me on discord (Link to my discord server is on the home page.) Or alternatively via Email at catcap123@gmail.com</p>
                 <h1>How do I provide feedback or report issues?</h1>
                 <p>Currently the best way to give me feedback or report issues is to reach out to me on discord or send me an email at catcap123@gmail.com. A link to my discord server is available on the home page.</p>
+                <h1>Why no HTTPS?</h1>
+                <p>I'm not using HTTPS because I do not have access to port 443 on the network that this website is hosted on.</p>
             </div>
         </div>
     </body>
