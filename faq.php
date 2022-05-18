@@ -2,14 +2,16 @@
 session_start();
 $username = $_SESSION['username'];
 $activepage = "Main Page";
-$activeurl = 'toys';
+$activeurl = 'faq';
 include_once 'header.php';
 
 ?>
 
 <html>
     <head>
-
+        <meta content="ZyalpNET FAQ" property="og:title" />
+        <meta content="Frequently Asked Questions" property="og:description" />
+        <meta content="http://zyalp.com/main/<?php $activeurl?>" property="og:url" />
     </head>
     <body>
         <div class="PageContent">
